@@ -2,6 +2,10 @@
 
 A hands-on tutorial project for learning Go (Golang), designed for developers with C/C++, JavaScript, and TypeScript experience.
 
+**This repo also includes a production-style backend:** the **[Student Progress & Mastery Service](edtech-mastery-service/README.md)** — an event-driven Go API for learning events, student mastery, and teacher dashboards. See [Standalone Project: EdTech Mastery Service](#standalone-project-edtech-mastery-service) below.
+
+---
+
 ## Prerequisites
 
 - **Go 1.21+** — [Install Go](https://go.dev/doc/install)
@@ -26,6 +30,16 @@ Each lesson is a self-contained, runnable program. Work through them in order:
 | 11 | Generics (bonus) | `go run 11-generics/main.go` |
 | project | CLI tool — culminating project | `go run project/main.go` |
 
+## Standalone Project: EdTech Mastery Service
+
+In addition to the tutorial lessons, this repo contains a **separate, production-style backend** in its own Go module:
+
+| Project | Description | How to Run |
+|---------|-------------|------------|
+| **edtech-mastery-service** | Event-driven Go backend: learning event ingestion, student mastery & class rollups, teacher dashboards. Uses Postgres, Redis, chi, zerolog, Prometheus. | See [edtech-mastery-service/README.md](edtech-mastery-service/README.md). Quick start: `cd edtech-mastery-service && docker compose up` |
+
+It demonstrates idiomatic Go, event-driven design, worker pools, idempotent APIs, and observability. It has its own `go.mod`, so run and build from inside `edtech-mastery-service/`.
+
 ## Quick Reference: Go vs Your Background
 
 | Concept | C/C++ | JavaScript/TypeScript | Go |
@@ -41,20 +55,21 @@ Each lesson is a self-contained, runnable program. Work through them in order:
 
 ```
 GoLangProject/
-├── README.md           # This file
-├── go.mod              # Module definition
-├── 01-basics/          # Variables, types, I/O
-├── 02-control-flow/    # Conditionals, loops
-├── 03-functions/       # Functions, multiple returns
-├── 04-pointers-structs/# Pointers and structs
-├── 05-interfaces/      # Interface-based design
-├── 06-collections/     # Slices, maps
-├── 07-error-handling/  # Error handling patterns
-├── 08-concurrency/     # Goroutines, channels
-├── 09-packages/        # Multi-package structure
-├── 10-standard-library/# JSON, HTTP, files, time
-├── 11-generics/        # Generics (Go 1.18+)
-└── project/            # Final CLI project
+├── README.md                 # This file
+├── go.mod                    # Module definition (tutorial + project/)
+├── 01-basics/                # Variables, types, I/O
+├── 02-control-flow/          # Conditionals, loops
+├── 03-functions/             # Functions, multiple returns
+├── 04-pointers-structs/      # Pointers and structs
+├── 05-interfaces/            # Interface-based design
+├── 06-collections/           # Slices, maps
+├── 07-error-handling/        # Error handling patterns
+├── 08-concurrency/           # Goroutines, channels
+├── 09-packages/              # Multi-package structure
+├── 10-standard-library/     # JSON, HTTP, files, time
+├── 11-generics/              # Generics (Go 1.18+)
+├── project/                  # Final CLI project
+└── edtech-mastery-service/   # Standalone backend (own go.mod, Docker, APIs)
 ```
 
 ## Tips for Your Background
